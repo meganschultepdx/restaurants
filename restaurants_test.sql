@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 09, 2019 at 09:13 PM
+-- Generation Time: May 09, 2019 at 10:56 PM
 -- Server version: 5.6.38
 -- PHP Version: 7.2.1
 
@@ -25,10 +25,10 @@ USE `restaurants_test`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cuisine_test`
+-- Table structure for table `cuisines`
 --
 
-CREATE TABLE `cuisine_test` (
+CREATE TABLE `cuisines` (
   `id` int(11) NOT NULL,
   `cuisine_type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -36,10 +36,10 @@ CREATE TABLE `cuisine_test` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `restaurants_test`
+-- Table structure for table `restaurants`
 --
 
-CREATE TABLE `restaurants_test` (
+CREATE TABLE `restaurants` (
   `id` int(11) NOT NULL,
   `restaurant_name` varchar(255) NOT NULL,
   `cuisine_type_id` int(11) NOT NULL
@@ -50,15 +50,15 @@ CREATE TABLE `restaurants_test` (
 --
 
 --
--- Indexes for table `cuisine_test`
+-- Indexes for table `cuisines`
 --
-ALTER TABLE `cuisine_test`
+ALTER TABLE `cuisines`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `restaurants_test`
+-- Indexes for table `restaurants`
 --
-ALTER TABLE `restaurants_test`
+ALTER TABLE `restaurants`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -66,15 +66,15 @@ ALTER TABLE `restaurants_test`
 --
 
 --
--- AUTO_INCREMENT for table `cuisine_test`
+-- AUTO_INCREMENT for table `cuisines`
 --
-ALTER TABLE `cuisine_test`
+ALTER TABLE `cuisines`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `restaurants_test`
+-- AUTO_INCREMENT for table `restaurants`
 --
-ALTER TABLE `restaurants_test`
+ALTER TABLE `restaurants`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
