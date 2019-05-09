@@ -87,6 +87,33 @@ namespace Cuisines.Models
       }
     }
 
+    public static Cuisine Find(int id)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM cuisines WHERE id = (@searchId);";
+      MySqlParameter searchId = new MySqlParameter();
+      searchId.ParameterName = "@searchId";
+      searchId.Value = id;
+      cmd.Parameters.Add(searchId);
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      int CuisineId = 0;
+      string CuisineName = "";
+      while(rdr.Read())
+      {
+        CuisineId = rdr.GetInt32(0);
+        CuisineName = rdr.GetString(1);
+      }
+      Cuisine newCuisine = new Cuisine(CuisineName, CuisineId);
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return newCuisine;
+    }
+
 
 
 

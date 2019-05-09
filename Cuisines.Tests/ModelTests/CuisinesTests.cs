@@ -60,5 +60,45 @@ namespace Cuisines.Tests
       //Assert
       CollectionAssert.AreEqual(newList, result);
     }
+
+    [TestMethod]
+    public void Equals_ReturnsTrueIfNamesAreTheSame_Cuisine()
+    {
+      //Arrange, Act
+      Cuisine firstCuisine = new Cuisine("Household chores");
+      Cuisine secondCuisine = new Cuisine("Household chores");
+
+      //Assert
+      Assert.AreEqual(firstCuisine, secondCuisine);
+    }
+
+    [TestMethod]
+    public void Find_ReturnsCuisineInDatabase_Cuisine()
+    {
+      //Arrange
+      Cuisine testCuisine = new Cuisine("Household chores");
+      testCuisine.Save();
+
+      //Act
+      Cuisine foundCuisine = Cuisine.Find(testCuisine.Id);
+
+      //Assert
+      Assert.AreEqual(testCuisine, foundCuisine);
+    }
+
+    [TestMethod]
+    public void Save_SavesCuisineToDatabase_CuisineList()
+    {
+      //Arrange
+      Cuisine testCuisine = new Cuisine("Cuban");
+      testCuisine.Save();
+
+      //Act
+      List<Cuisine> result = Cuisine.GetAll();
+      List<Cuisine> testList = new List<Cuisine>{testCuisine};
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
   }
 }
